@@ -272,3 +272,305 @@ undefined
 - **Maiúsculas** e **minúscula** fazem diferença
 - Tente escolher **nomes coerentes** para as variáveis
 - Evite ser um **"programador alfabeto"** ou um **"programador contador"**
+
+# Aula 6
+
+## Manipulação de dados
+
+Tipos primitivos principais:
+  - Number
+  - String
+  - Boolean (True, False)
+
+**O que foi feito no terminal**
+```js
+
+> let s = 'JavaScript'
+undefined
+> s
+'JavaScript'
+> 'Eu estou estudando s'
+'Eu estou estudando s'
+> 'Eu estou estudando ' + s
+'Eu estou estudando JavaScript'
+> 
+> let nome = 'Gustavo'
+undefined
+> let idade = 41
+undefined
+> let nota = 5.5
+undefined
+> nome
+'Gustavo'
+> idade
+41
+> nota
+5.5
+> 'O aluno ' + nome + ' com ' + idade + ' anos ' + 'tirou a nota ' + nota
+'O aluno Gustavo com 41 anos tirou a nota 5.5'
+> // versões recentes o template strings
+undefined
+> // o ${} é o que chamamos de placeholder
+undefined
+> `O aluno ${nome} com ${idade} anos tirou a nota ${nota}`
+'O aluno Gustavo com 41 anos tirou a nota 5.5'
+> .exit
+```
+-------
+
+```js
+> let n1 = 1545.5
+undefined
+> n1
+1545.5
+> n1.toFixed(2)
+'1545.50'
+> n1.toFixed(2).replace('.', ',')
+'1545,50'
+> n1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+'R$ 1.545,50'
+> n1.toLocaleString('eng-US', {style: 'currency', currency: 'BTC'})
+'BTC 1,545.50'
+> n1.toLocaleString('eng-US', {style: 'currency', currency: 'ETH'})
+'ETH 1,545.50'
+> n1.toLocaleString('eng-US', {style: 'currency', currency: 'XMR'})
+'XMR 1,545.50'
+> n1.toLocaleString('eng-US', {style: 'currency', currency: 'USD'})
+'$1,545.50'
+> n1.toLocaleString('eng-US', {style: 'currency', currency: 'EUR'})
+'€1,545.50'
+> n1.toLocaleString('pt-BR', {style: 'currency', currency: 'EUR'})
+'€ 1.545,50'
+> n1.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'}
+... 
+... 
+> n1.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})
+'US$ 1.545,50'
+>.exit
+``` 
+
+**Exercicio 4:**
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: normal 20pt Arial;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // Formatar strings
+        let nome = window.prompt('Qual é seu nome?');
+        document.write(`Olá, <strong>${nome}</strong>! Seu nome tem ${nome.length} letras.<br>`);
+        document.write(`Seu nome em maiúsculas é ${nome.toUpperCase()}<br>`);
+        document.write(`Seu nome em minúsculas é ${nome.toLowerCase()}`);
+        // Formatar números
+    </script>
+</body>
+</html>
+
+```
+
+**Exercicio 3:**
+
+```html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 | Curso de JavaScript</title>
+    <style>
+        body {
+            background-color: #6d6dac;
+            color: white;
+            font: normal 20pt arial;
+        }
+        h1 {
+            color: #fde404;
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>Já me livrei da maldição!</p>
+    <script>
+        let n1 = Number(window.prompt('Digite um número')); // String
+        let n2 = Number(window.prompt('Digite outro número')) // String
+        // Converter o valor de string para number
+        /* Number.parseint(n) para converter para inteiro
+        Number.parseFloat(n) para converter para float, com uma virgula
+        Number(n) deixe o JavaScript decidir se vai ser inteiro ou float*/
+        // Converter de number para string
+        /* String(n) ou n.toString()*/
+        let s = n1 + n2
+        window.alert(`A soma entre ${n1} e ${n2} é igual a ${s}`) // Concatenação
+        /* number + number para adição
+        string + string para concatenação */
+        /* Formatando Strings 
+        let s = 'JavaScript'
+        s.length quantos caracteres a string tem
+        s.toUpperCase() tudo pra MAIÚSCULAS
+        s.toLowerCase() Tudo pra minúsculas*/
+    </script>
+</body>
+</html>
+
+```
+
+**Exercicio 2:**
+```html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 | Curso de JavaScript</title>
+    <style>
+        body {
+            background-color: #6d6dac;
+            color: white;
+            font: normal 20pt arial;
+        }
+        h1 {
+            color: #fde404;
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>Já me livrei da maldição!</p>
+    <script>
+        let nome = window.prompt('Qual é seu nome?'); // Vai perguntar o nome
+        window.alert('É um grande prazer te conhecer, ' + nome + '!'); // Concatenação
+    </script>
+</body>
+</html>
+
+```
+# Aula 7
+
+## Operadores
+
+- 5 + 2 = 7
+- 5 - 2 = 3
+- 5 * 2 = 10
+- 5 / 2 = 2.5
+- 5 % 2 = 1 (resto da divisão inteira)
+- 5 ** 2 = 25 (potencia de 5, no caso 5 ao quadrado)
+
+> ⚠️ No JavaScript existe algo chamado **"precedência de valores"**, veja o exemplo abaixo:
+>
+> **Exemplo**:
+>
+> ```js
+> 5 + 3 / 2 
+> > 6.5
+> ```
+>
+> Mas por que 6.5? Não era 4?
+>
+> No JavaScript ele faz primeiro a divisão e depois a adição, sendo assim 3 / 2 é igual a 1.5, mais 5 fica 6.5, agora para fazer 5 + 3 primeiro, apenas coloque as **()** como na matématica e pronto!
+>
+> **Exemplo**:
+>
+> ```js
+> > 5 + 3 / 2
+> 6.5
+> > (5 + 3) / 2
+> 4
+> ```
+
+### Precedência dos valores:
+
+1. ()
+2. **
+3. *, /, %
+4. +, -
+
+> ⚠️ Se houver uma **mutiplicação(*)**, **divisão(/)** ou **resto da divisão por inteiro(%)** na mesma linha, quem aparecer primeiro vai ser feito primeiro.
+
+**O que foi feito no node**:
+```js
+> let a = 5 + 3
+undefined
+> a
+8
+> let b = a % 5
+undefined
+> b
+3
+> let c = 5 * b ** 2
+undefined
+> c
+45
+> let d = 10 - a / 2
+undefined
+> d
+6
+> let e = 6 * 2 / d
+undefined
+> e
+2
+> let f = b % e + 4 / e
+undefined
+> f
+3
+```
+
+**Auto atribuições**:
+```js
+> let n = 3
+undefined
+> n = n + 4
+7
+> n = n -  5
+2
+> n = n * 4
+8
+> n = n / 2
+4
+> n = n ** 2
+16
+> n = n % 5
+1
+```
+
+> ⚠️ Para simplificar o **```n = n + 4```**, você pode colocar **```n += 4```**, isso só funciona se a mesma variavél receber ela mais outro número
+
+**O que foi feito no node**:
+
+```js
+> let num = 8
+undefined
+> num
+8
+> num += 2
+10
+> num
+10
+> num %= 2
+0
+> num = 3
+3
+> num **= 2
+9
+```
+
+### Incremento:
+
+- Colocando ++ antes ou depois da variavel soma ela por 1
